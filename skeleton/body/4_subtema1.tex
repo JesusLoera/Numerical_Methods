@@ -1,0 +1,29 @@
+\section{Insert A head here}
+This demo file is intended to serve as a ``starter file''. It is for preparing manuscript submission only, not for preparing camera-ready versions of manuscripts. Manuscripts will be typeset for publication by the journal, after they have been accepted.
+
+By default, this template uses \texttt{biblatex} and adopts the Chicago referencing style. If you are using this template on Overleaf, Overleaf's build tool will automatically run \texttt{pdflatex} and \texttt{biber}. If you are compiling this template on your own local \LaTeX{} installation, please execute the following commands:
+\begin{enumerate}
+    \item \verb|pdflatex sample|
+    \item \verb|biber sample|
+    \item \verb|pdflatex sample|
+    \item \verb|pdflatex sample|
+\end{enumerate}
+
+Some journals e.g.~\texttt{journal=aog|jog|pasa} require Bib\TeX{}. For such journals, you will need to
+\begin{itemize}
+    \item delete the existing \verb|\addbibresource{example.bib}|;
+    \item change the existing \verb|\printbibliography| to be \verb|\bibliography{example}| instead.
+\end{itemize} 
+
+Overleaf will run \texttt{pdflatex} and \texttt{bibtex} automatically as needed. But if you had \emph{first} compiled using another \texttt{journal} option that adopts \texttt{biblatex}, and \emph{then} change the \texttt{journal} option to one that adopts Bib\TeX{}, you may get some compile error messages instead. In this case you will need to do a `Recompile from scratch'; see \url{https://www.overleaf.com/learn/how-to/Clearing_the_cache}.
+
+On a local \LaTeX{} installation, you would need to run these steps instead:
+\begin{enumerate}
+    \item Delete \texttt{sample.aux}, \texttt{sample.bbl} if these files from a previous compile using \texttt{biber} still exist.
+    \item \verb|pdflatex sample|
+    \item \verb|bibtex sample|
+    \item \verb|pdflatex sample|
+    \item \verb|pdflatex sample|
+\end{enumerate}
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 

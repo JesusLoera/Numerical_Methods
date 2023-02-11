@@ -1,0 +1,57 @@
+\documentclass[
+  journal=small,
+  manuscript=Reporte-de-laboratorio-computacional,  % Use a - if you need a space e.g. "research-article"
+  year=2023,
+  volume=Febrero,
+]{cup-journal}
+
+\input{body/1_preambulo.tex}
+
+\input{body/2_header.tex}
+
+%\author{S. Author}
+%\affiliation{Second Division, Organization, City, Pincode, State, Country}
+% \alsoaffiliation{Joint first authors}
+
+%\author{T. Author}
+%\affiliation{Second Division, Organization, City, Pincode, State, Country}
+
+%\author{F.T. Author}
+%\affiliation{Fourth Division, Organization, City, Pincode, State, Country}
+
+\addbibresource{example.bib}
+
+\keywords{Integración numérica, Método de Romberg, Método de Extrapolación de Richardson, Fortran, Python} 
+
+\begin{document}
+
+\input{body/3_abstract.tex}
+
+\input{body/intro.tex}
+
+\input{body/4_MetodoRomberg.tex}
+
+%\input{body/5_MetodoRichardson.tex}
+
+\input{body/6_ProblemaFisico.tex}
+
+%\input{body/7_subtema4.tex}
+
+%\input{body/8_subtema5.tex}
+
+\input{body/9_conclusiones.tex}
+
+
+%\input{body/10_agradecimientos.tex}
+
+
+%\endnote in some journals will behave like \footnote; and \printendnotes will not output anything. 
+%\printendnotes
+
+\printbibliography
+
+\appendix
+\input{body/11_apendice1.tex}
+\input{body/12_apendice2.tex}
+
+\end{document}
