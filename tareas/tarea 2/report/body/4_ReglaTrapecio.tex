@@ -1,0 +1,33 @@
+\section{La regla del trapecio}
+
+\vspace{0.5cm}
+
+La regla del trapecio (\cite{nakamura1993applied}) es un método de integración numérica que permite calcular el valor aproximado de las integrales de la forma
+
+\begin{equation*}
+    I = \displaystyle\int_{a}^{b} f(x)dx
+\end{equation*}
+
+\noindent donde f(x) es una función escalar de una variable real X.
+
+El discretizar la región de integración $ \left[ a,b \right] $ en N subintervalos de igual tamaño $h$ delimitados por los puntos $ \{ x_{0}, x_{1}, x_{2}, ..., x_{N-1}, x_N \} $ donde $x_{i+1} > x_{i}$, $x_0=a$ y $x_N = B$ , se puede aproximar el valor de la integral de la siguiente forma:
+
+\begin{equation}
+    \displaystyle\int_{a}^{b} f(x) dx = 
+    \frac{h}{2} \left\{ 
+    f(a) + f(b) + 2\displaystyle\sum_{i=1}^{N-1} f(x_i) 
+    \right\}
+\end{equation}
+
+\begin{equation}
+    h = \frac{b-a}{N}
+\end{equation}
+
+Es decir, podemos escribir
+
+\begin{equation}
+    \displaystyle\int_{a}^{b} f(x) dx = 
+    \frac{h}{2} \left\{ 
+    f(a) + f(b) + 2\displaystyle\sum_{i=1}^{N-1} f(a + i \frac{b-a}{N})
+    \right\}
+\end{equation}

@@ -1,5 +1,5 @@
 # Programa elaborado por Jesús Eduardo Loera Casas
-# Elaborado el día 14/02/23
+# Elaborado el día 13/02/23
  
 import numpy as np
 

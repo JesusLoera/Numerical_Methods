@@ -1,0 +1,50 @@
+\section{Integración doble mediante la regla del trapecio}
+
+Consideremos una integral doble definida I sobre una región rectangular.
+
+\begin{equation}
+    I = \displaystyle\int_{a}^{b} \displaystyle\int_{c}^{d} 
+    f(x,y) dy dx
+\end{equation}
+
+Podemos definir a la función G como sigue
+
+\begin{equation}
+    G(x) \equiv \displaystyle\int_{c}^{d} f(x,y) dy
+\end{equation}
+
+De esta manera, podemos reescribir la integral I como a continuación.
+
+\begin{equation}
+    I = \displaystyle\int_{a}^{b} G(x) dx
+\end{equation}
+
+Observe que de esta forma I puede ser calculada con la regla del trapecio ordinaria.
+
+\begin{equation} 
+    I =
+    \displaystyle\int_{a}^{b} G(x) dx = 
+    \frac{h}{2} \left\{ 
+    G(a) + G(b) + 2\displaystyle\sum_{i=1}^{N-1} G(a + i \frac{b-a}{N})
+    \right\}
+\end{equation}
+
+Donde, empleando la definición de G nos queda la siguiente ecuación.
+
+\begin{equation} 
+    I =
+    \frac{h}{2} \left\{ 
+        \displaystyle\int_{c}^{d} f(a,y) dy
+        + \displaystyle\int_{c}^{d} f(b,y) dy
+        + 2\displaystyle\sum_{i=1}^{N-1} {N}\displaystyle\int_{c}^{d} f(a + i \frac{b-a}{N},y) dy
+    \right\}
+\end{equation}
+
+Observe que $G(x_i)$ también puede ser cálculado fácilmente por la regla del trapecio.
+
+\begin{equation} 
+     G(x_i) = 
+    \frac{h}{2} \left\{ 
+    f(x_i,c) + f(x_i,d) + 2\displaystyle\sum_{i=1}^{N-1} f(x_i, c + i \frac{d-c}{N})
+    \right\}
+\end{equation}

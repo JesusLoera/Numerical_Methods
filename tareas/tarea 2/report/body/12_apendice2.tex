@@ -10,98 +10,71 @@
 }
 
 \begin{lstlisting}
-! Programa elaborado por Jesus Eduardo Loera Casas
-! Fecha 01/02/23
-
-    REAL FUNCTION fx(x)
-        IMPLICIT NONE
-        REAL :: x
-        ! Parametros
-        REAL :: mo, g, q, u
-        g = 9.8; u = 1800; mo = 160000; q = 2500
-        ! ecuacion del cohete
-        fx = u*log((mo)/(mo-q*x))-g*x
-        RETURN 
-    END
-
-    REAL FUNCTION romberg_00(a, b)   
-        IMPLICIT NONE
-        REAL :: a, b, fx
-        romberg_00 = 0.5*(b-a)*(fx(a)+fx(b))
-        RETURN
-    END
-
-    RECURSIVE FUNCTION romberg_n0(n, a, b) result(integral)
-        IMPLICIT NONE
-        INTEGER :: n, k
-        REAL :: a, b, fx, romberg_00, hn, sum, integral
-        IF (n==0) THEN
-            integral = romberg_00(a, b)
-        ELSE 
-            hn = (b-a)/(2**n)
-            sum = 0
-            DO k = 1, 2**(n-1)
-                sum = sum + fx(a + (2*k-1)*hn)
-            END DO
-            integral = 0.5*(romberg_n0(n-1, a, b)) + hn*sum
-        END IF
-        RETURN
-    END
-
-    REAL FUNCTION romberg_nm(n, m, a, b)
-        IMPLICIT NONE
-        INTEGER :: n, m, i, j
-        REAL :: a, b, romberg_ij, aux, romberg_00, romberg_n0, tol
-        REAL, DIMENSION ((n+1),(m+1)) :: matrix
-
-        ! Definimos una tolarancia al error con cada iteracion
-        tol = 0.00001
-            
-        matrix(1,1) = romberg_00(a,b)
-
-        DO i = 2, n + 1
-            matrix(i,1) = romberg_n0(i-1, a, b)
-            ! Evaluamos el criterio de convergencia
-            IF (abs(matrix(i,1)-matrix(i-1,1)) .le. tol ) THEN
-                write(*,*) "La integral convergio con una" 
-                write(*,*) "tolerancia de: ", tol
-                romberg_nm = matrix(i,1)
-                RETURN
-            END IF
-        END DO
-
-        DO j = 2, m+1
-            DO i = j, n+1
-                aux = (4**(j-1))*matrix(i, j-1) - matrix(i-1, j-1)
-                romberg_ij = (1.0/((4.0**(j-1))-1))*(aux)
-                matrix(i,j) = romberg_ij
-                ! Evaluamos el criterio de convergencia
-                IF (abs(matrix(i,j)-matrix(i-1,j)) .le. tol ) THEN
-                    write(*,*) "La integral convergio."
-                    romberg_nm = matrix(i,j)
-                    RETURN
-                END IF
-            END DO
-        END DO
-
-        write(*,*)"La integral no convergio con la tolerancia dada."
-        romberg_nm = matrix(n+1, m+1)
-        RETURN
-    END
-
-    PROGRAM main
- 
-        IMPLICIT NONE
-        INTEGER :: n, m
-        REAL :: a, b
-        REAL :: romberg_nm, int_nm
-
-        n = 10 ; m = 4
-        a = 0  ; b = 30
-
-        int_nm = romberg_nm(n, m, a, b)
-
-        WRITE(*,*) "La aproximacion de romber es: ", int_nm
-
-    END PROGRAM main
+        ! Programa elaborado por Jesus Eduardo Loera Casas
+        ! Fecha 09/02/23
+        
+        ! En este programa resolvemos integrales dobles con la regla
+        ! del trapecio.
+        
+                ! definimos el integrandpo 
+                real function f(x,y)
+                    implicit none
+                    real :: x,y
+                    f = log(x+2*y)
+                    return
+                end function
+        
+                ! programa principal
+                program main
+        
+                    implicit none
+                    real :: integral, dx, dy, xo, xf, yo, yf
+        
+                    ! definimos la region de integracion
+                    xo = 1.4 ; xf = 2.0
+                    yo = 1.0 ; yf = 1.5
+        
+                    ! definimos el tamano de subintervalo de integracion
+                    dx = 0.0001 ; dy = 0.0001
+        
+                    call integracion_doble(xo, xf, yo, yf, dx, dy, integral)
+        
+                    write(*,*) "El valor de la integral es: ", integral
+        
+                end program main
+        
+                ! subrutina que calcula la integral doble con regla del trapecio
+                subroutine integracion_doble(xo, xf, yo, yf, dx, dy, integral)
+                    implicit none
+                    real :: xo, xf, yo, yf, dx, dy, integral, suma
+                    real :: f
+                    real :: trapecio_y, aux
+                    integer :: Nx, Ny, i
+                    Nx = (xf-xo)/dx + 1
+                    Ny = (yf-yo)/dy + 1
+                    suma = 0.0
+                    do i = 1, Nx-1
+                        suma = suma + trapecio_y(yo, yf, dy, xo + i*dx)
+                    end do
+                    aux = trapecio_y(yo,yf,dy,xo) + trapecio_y(yo,yf,dy,xf)
+                    integral = (0.5*dx)*(aux + 2*suma)
+                end subroutine
+        
+                ! regla del trapecio para integrar funciones f(cte,y)
+                real function trapecio_y(yo, yf, dy, xcte)
+                    implicit none
+                    real :: yo, yf, dy, suma
+                    ! funcion del integrando
+                    real :: f, xcte
+                    integer :: N, i
+        
+                    N = (yf-yo)/dy + 1
+                    suma = 0.0
+                    do i = 1, N-1
+                        suma = suma + f(xcte, yo+i*dy)
+                    end do
+                    trapecio_y = (0.5*dy)*(f(xcte,yo) + f(xcte,yf) + 2*suma)
+        
+                    return
+                end function
 \end{lstlisting}

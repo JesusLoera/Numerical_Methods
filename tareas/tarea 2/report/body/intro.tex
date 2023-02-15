@@ -1,7 +1,15 @@
-\noindent Desde la invención del cálculo con Newton y Leibniz, en prácticamente todas las ramas de la física se suele recurrir a el cálculo de integrales para definir magnitudes físicas. Por ejemplo, cuando queremos verificar la normalización de una función de onda
+\section{Introducción}
+
+\noindent En prácticamente todas las ramas de la física la integración tiene un papel muy importante, conocemos muchas magnitudes físicas cuya definición implica una integral, particularmente el flujo eléctrico, el flujo magnético y la normalización de la función de onda bidimensional son ejemplos de definiciones que implican una integral doble.
 
 \begin{equation*}
-  \braket{\psi | \psi} = \displaystyle\int_{-\infty}^{\infty} \psi^{*} \psi dx
+  \braket{\psi | \psi} = \displaystyle\int_{S} \psi^{*} \psi dA
+\end{equation*}
+
+\begin{equation*}
+  \Phi_B = \displaystyle\int_{S} \vec{B} \cdot  d\vec{A}
+  \quad \quad \quad
+  \Phi_E = \displaystyle\int_{S} \vec{E} \cdot  d\vec{A}
 \end{equation*}
 
 El cálculo de dichas integrales se puede volver complicado, por ello solemos recurrir a técnicas de integración numérica para resolver el problema de manera computacional.
