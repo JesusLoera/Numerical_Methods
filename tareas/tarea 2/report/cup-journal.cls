@@ -229,7 +229,7 @@
 \renewcommand\appendix{\par
   \setcounter{section}{0}
   \setcounter{subsection}{0}
-  \gdef\thesection{Appendix \@arabic\c@section}
+  \gdef\thesection{Apéndice \@arabic\c@section}
 }
 \newmdenv[backgroundcolor=structure@color!15,hidealllines=true,leftmargin=3mm,rightmargin=3mm,innertopmargin=2mm,innerbottommargin=3mm,frametitle={\abstractfont\sffamily Abstract},frametitleaboveskip=3mm,frametitlebelowskip=0mm]{cup@abstract@box}
 \let\abstract@org\abstract
@@ -504,7 +504,7 @@
 }
 \newcommand*\cup@keywords@print{%
   \ifx\@keywords\@empty\else
-    {\noindent\bfseries Keywords: }
+    {\noindent\bfseries Palabras clave: }
     \@keywords
     \par
   \fi
@@ -652,7 +652,7 @@
   \fi
 }
 \newcommand*\cup@contact@details{%
-  { \emailsymbol{}Corresponding author. Email: \cup@email@list}%
+  { \emailsymbol{}Autor correspondiente. Email: \cup@email@list}%
   \cup@number@list
 }
 \let\@thanks\@empty
