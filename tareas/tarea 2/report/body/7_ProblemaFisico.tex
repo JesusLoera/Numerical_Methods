@@ -1,0 +1,104 @@
+\section{Resolver la ecuación del Cohete}
+
+\vspace{0.5cm}
+
+\noindent \textbf{Problema.} Encuentra el campo $\vec{E}$ debido a un disco cargado de 
+radio $2m$ con una carga total $Q=5 C$ a una distancia de $5m$ del
+disco colocado sobre el eje del disco.
+
+\textbf{Solución.}
+
+Conocemos la ley de Coulomb para distribuciones continuas de carga.
+
+\begin{equation}
+    \vec{E} (\vec{r}) = \frac{1}{4\pi \epsilon_0} 
+    \displaystyle\int_{S} \frac{\sigma(\vec{r}) \left( \vec{r} - \vec{r}^{'}  \right) }{\left\lVert \vec{r} - \vec{r}^{'} \right\rVert } dA^{'}
+    \label{eqn:ley_coulomb}
+\end{equation}
+
+En nuestro caso
+
+\begin{equation*}
+    \sigma(\vec{r}^{'}) = \frac{Q}{\pi R^2} 
+    \quad \text{,} \quad
+    \vec{r} = z_0 \hat{k}
+    \quad \text{,} \quad
+    \vec{r}^{'} = x \hat{i} + y \hat{j}
+\end{equation*}
+
+\begin{equation*}
+    \vec{r} - \vec{r}^{'} =
+    -x \hat{i} - y \hat{j} + z_{0} \vec{k}
+    \quad , \quad
+    \left\lVert \vec{r} - \vec{r}^{'} \right\rVert 
+    = 
+    \left( x^2 + y^2 + z_{0}^{2} \right)^{1/2}
+\end{equation*}
+
+Sustituyendo las ecuaciones anteriores en la ecuación número \ref{eqn:ley_coulomb}.
+
+\begin{equation}
+    \vec{E} (\vec{r}) = \frac{\sigma}{4\pi \epsilon_0} 
+    \displaystyle\int_{S} \frac{ -x \hat{i} - y \hat{j} + z_{0} \vec{k} }{\left( x^2 + y^2 + z_{0}^{2} \right)^{3/2}} dA^{'}
+\end{equation}
+
+Como estamos integrando sobre la superficie definida por el interior de la circunferencia de la ecuación $ x^2 + y^2 = 4 $, reescribimos a la integral de la siguiente forma.
+
+\begin{equation}
+    \vec{E} (\vec{r}) = \frac{\sigma}{4\pi \epsilon_0} 
+    \displaystyle\int_{-2}^{2} 
+    \displaystyle\int_{- \sqrt{4 - x^2} }^{\sqrt{4 - x^2}}
+    \frac{ -x \hat{i} - y \hat{j} + z_{0} \vec{k} }{\left( x^2 + y^2 + z_{0}^{2} \right)^{3/2}} dy dx
+\end{equation}
+
+De esta manera, las componentes rectangulares del campo eléctrico estan dadas por:
+
+\begin{equation}
+    \longrightarrow
+    E_{x} (\vec{r}) =  
+    \displaystyle\int_{-2}^{2} 
+    \displaystyle\int_{- \sqrt{4 - x^2} }^{\sqrt{4 - x^2}}
+    \frac{\sigma}{4\pi \epsilon_0}
+    \frac{ -x }{\left( x^2 + y^2 + z_{0}^{2} \right)^{3/2}} dy dx
+\end{equation}
+
+\begin{equation}
+    \longrightarrow
+    E_{y} (\vec{r}) =  
+    \displaystyle\int_{-2}^{2} 
+    \displaystyle\int_{- \sqrt{4 - x^2} }^{\sqrt{4 - x^2}}
+    \frac{\sigma}{4\pi \epsilon_0}
+    \frac{ -y }{\left( x^2 + y^2 + z_{0}^{2} \right)^{3/2}} dy dx
+\end{equation}
+
+\begin{equation}
+    \longrightarrow
+    E_{z} (\vec{r}) =  
+    \displaystyle\int_{-2}^{2} 
+    \displaystyle\int_{- \sqrt{4 - x^2} }^{\sqrt{4 - x^2}}
+    \frac{\sigma}{4\pi \epsilon_0}
+    \frac{ z_0 }{\left( x^2 + y^2 + z_{0}^{2} \right)^{3/2}} dy dx
+\end{equation}
+
+Calculamos las tres ecuaciones anteriores con el programa escrito en el apéndice titulado "Programa del problema físico en Fortran".
+
+
+Vea una comparación de las componentes del campo eléctrico obtenidas en con el programa en Fortran con la solución teórica en la tabla~\ref{table_results}.
+
+\begin{table}[hbt!]
+    \begin{threeparttable}
+    \begin{tabular}{lll}
+    \toprule
+    \headrow & Solución numérica $N/C$ & Solución teórica $N/C$ \\
+    \midrule
+    $E_x$ & -4.57552147 & 0 \\ 
+    \midrule
+    $E_y$ & -7215.09961 & 0 \\ 
+    \midrule
+    $E_z$ & $1.60803021 \times 10^9$ & $1.6 \times 10^9$ \\ 
+    \bottomrule
+    \end{tabular}
+    \caption{Se utilizó $h_x = 0.0001$ y $h_y = 0.0001$ para la integración.}
+    \label{table_results}
+\end{threeparttable}
+\end{table}
