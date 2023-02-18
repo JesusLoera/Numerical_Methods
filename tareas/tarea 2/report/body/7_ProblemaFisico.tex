@@ -82,8 +82,7 @@ De esta manera, las componentes rectangulares del campo eléctrico estan dadas p
     \frac{ z_0 }{\left( x^2 + y^2 + z_{0}^{2} \right)^{3/2}} dy dx
 \end{equation}
 
-Calculamos las tres ecuaciones anteriores con el programa escrito en el apéndice titulado "Programa del problema físico en Fortran".
-
+Calculamos las tres ecuaciones anteriores con el programa escrito en el apéndice titulado "Programa del problema físico en Fortran". 
 
 Vea una comparación de las componentes del campo eléctrico obtenidas en con el programa en Fortran con la solución teórica en la tabla~\ref{table_results}.
 
@@ -104,3 +103,14 @@ Vea una comparación de las componentes del campo eléctrico obtenidas en con el
     \label{table_results}
 \end{threeparttable}
 \end{table}
+
+\textbf{Observación:} La solución teórica del problema, usada para comparar con los resultados numéricos, está dada por la ecuación.
+
+\begin{equation}
+    \vec{E} =
+    \frac{1}{4\pi \epsilon_0} \frac{2QZ_0}{R^2} 
+    \left[
+        \frac{1}{z_o} - \frac{1}{\sqrt{R^2-z_o^2}}
+    \right]
+    \hat{z}
+\end{equation}

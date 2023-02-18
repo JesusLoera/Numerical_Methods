@@ -1,0 +1,79 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 3.2 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated by
+% biber as required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+
+\refsection{0}
+  \datalist[entry]{cms/global//global/global}
+    \entry{griffiths2005introduction}{misc}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=a00328547222c4a2a201442ee59dccfd}{%
+           family={Griffiths},
+           familyi={G\bibinitperiod},
+           given={David\bibnamedelima J},
+           giveni={D\bibinitperiod\bibinitdelim J\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {American Association of Physics Teachers}%
+      }
+      \strng{namehash}{a00328547222c4a2a201442ee59dccfd}
+      \strng{fullhash}{a00328547222c4a2a201442ee59dccfd}
+      \strng{bibnamehash}{a00328547222c4a2a201442ee59dccfd}
+      \strng{authorbibnamehash}{a00328547222c4a2a201442ee59dccfd}
+      \strng{authornamehash}{a00328547222c4a2a201442ee59dccfd}
+      \strng{authorfullhash}{a00328547222c4a2a201442ee59dccfd}
+      \field{sortinit}{G}
+      \field{sortinithash}{32d67eca0634bf53703493fb1090a2e8}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Introduction to electrodynamics}
+      \field{year}{2005}
+    \endentry
+    \entry{nakamura1993applied}{book}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=d38631c117eec78a8c94dcf8d2c1587e}{%
+           family={Nakamura},
+           familyi={N\bibinitperiod},
+           given={Shoichiro},
+           giveni={S\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Prentice-Hall, Inc.}%
+      }
+      \strng{namehash}{d38631c117eec78a8c94dcf8d2c1587e}
+      \strng{fullhash}{d38631c117eec78a8c94dcf8d2c1587e}
+      \strng{bibnamehash}{d38631c117eec78a8c94dcf8d2c1587e}
+      \strng{authorbibnamehash}{d38631c117eec78a8c94dcf8d2c1587e}
+      \strng{authornamehash}{d38631c117eec78a8c94dcf8d2c1587e}
+      \strng{authorfullhash}{d38631c117eec78a8c94dcf8d2c1587e}
+      \field{sortinit}{N}
+      \field{sortinithash}{22369a73d5f88983a108b63f07f37084}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Applied numerical methods in C}
+      \field{year}{1993}
+    \endentry
+  \enddatalist
+\endrefsection
+\endinput
+

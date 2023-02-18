@@ -3,14 +3,14 @@
 Consideremos una integral doble definida I sobre una región rectangular.
 
 \begin{equation}
-    I = \displaystyle\int_{a}^{b} \displaystyle\int_{c}^{d} 
+    I = \displaystyle\int_{a}^{b} \displaystyle\int_{c(x)}^{d(x)} 
     f(x,y) dy dx
 \end{equation}
 
 Podemos definir a la función G como sigue
 
 \begin{equation}
-    G(x) \equiv \displaystyle\int_{c}^{d} f(x,y) dy
+    G(x) \equiv \displaystyle\int_{c(x)}^{d(x)} f(x,y) dy
 \end{equation}
 
 De esta manera, podemos reescribir la integral I como a continuación.
@@ -34,9 +34,9 @@ Donde, empleando la definición de G nos queda la siguiente ecuación.
 \begin{equation} 
     I =
     \frac{h}{2} \left\{ 
-        \displaystyle\int_{c}^{d} f(a,y) dy
-        + \displaystyle\int_{c}^{d} f(b,y) dy
-        + 2\displaystyle\sum_{i=1}^{N-1} {N}\displaystyle\int_{c}^{d} f(a + i \frac{b-a}{N},y) dy
+        \displaystyle\int_{c(a)}^{d(a)} f(a,y) dy
+        + \displaystyle\int_{c(b)}^{d(b)} f(b,y) dy
+        + 2\displaystyle\sum_{i=1}^{N-1} {N}\displaystyle\int_{c(x_i)}^{d(x_i)} f(a + i \frac{b-a}{N},y) dy
     \right\}
 \end{equation}
 
@@ -45,7 +45,7 @@ Observe que $G(x_i)$ también puede ser cálculado fácilmente por la regla del 
 \begin{equation} 
      G(x_i) = 
     \frac{h}{2} \left\{ 
-    f(x_i,c) + f(x_i,d) + 2\displaystyle\sum_{i=1}^{N-1} f(x_i, c + i \frac{d-c}{N})
+    f(x_i,c(x_i)) + f(x_i,d(x_i)) + 2\displaystyle\sum_{i=1}^{N-1} f(x_i, c(x_i) + i \frac{d(x_i)-c(x_i)}{N})
     \right\}
 \end{equation}
 
